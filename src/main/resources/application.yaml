@@ -1,0 +1,33 @@
+
+spring:
+  application:
+    name: elearner-ws
+  h2:
+    console:
+      enabled: true
+    settings:
+        web-allow-others: true
+  datasource:
+    url: jdbc:h2:mem:elearnerdb
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+
+server:
+  port: 8080
+
+axoniq:
+  axonserver:
+    pid-file-location: /data
+    snapshot:
+      storage: /eventdata
+    controldb-path: /data
+logging:
+  file:
+    max-history: '10'
+    nodeValue: /data/axonserver.log
+    max-size: 10MB
